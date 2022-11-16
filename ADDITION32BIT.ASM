@@ -1,0 +1,31 @@
+.MODEL SMALL
+.386
+.DATA 
+    VAR1 DD 22229999H
+    VAR2 DD 77777777H
+.CODE
+
+.STARTUP
+    MOV EAX,VAR1
+    MOV EBX,VAR2
+
+    ADD AX,BX
+
+    MOV DX,AX
+
+    SHR EAX,16
+    SHR EBX,16
+
+    ADC AX,BX
+
+    MOV CX,AX
+
+
+
+    
+
+
+
+
+.EXIT
+END

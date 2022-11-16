@@ -1,0 +1,28 @@
+.MODEL SMALL
+.386
+.DATA
+    VAR1 DW 4005H
+    VAR2 DW 4005H
+.CODE
+.STARTUP
+
+    MOV BX,VAR1
+    MOV CX,VAR2
+
+    MOV AL,BL
+    ADD AL,CL
+
+    DAA 
+    MOV DS:[1000H],AL
+
+    MOV AL,BH
+    ADC AL,CH
+
+    DAA 
+
+    MOV DS:[1001H],AL
+
+    MOV AX,DS:[1000H]
+
+.EXIT
+END

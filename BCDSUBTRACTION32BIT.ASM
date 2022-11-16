@@ -1,0 +1,43 @@
+.MODEL SMALL
+.386
+.DATA
+    VAR1 DD 80058005H
+    VAR2 DD 50058005H
+.CODE
+.STARTUP
+
+    MOV EBX,VAR1
+    MOV ECX,VAR2
+
+    MOV AL,BL
+    SUB AL,CL
+
+    DAA 
+    MOV DS:[1000H],AL
+
+    MOV AL,BH
+    SBB AL,CH
+
+    DAA 
+
+    MOV DS:[1001H],AL
+
+    SHR EBX,16
+    SHR ECX,16
+
+    MOV AL,BL
+    SBB AL,CL
+
+    DAA 
+    MOV DS:[1002H],AL
+
+    MOV AL,BH
+    SBB AL,CH
+    DAA 
+
+    MOV DS:[1004H],AL
+
+    MOV EDX,DS:[1000H]
+
+.EXIT
+END
